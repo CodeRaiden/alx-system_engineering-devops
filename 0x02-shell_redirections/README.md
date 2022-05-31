@@ -5,3 +5,4 @@
 4-lastlines Displays the last 10 lines of /etc/passwd
 5-firstlines Displays the first 10 lines of /etc/passwd
 6-third_line Displays the third line of the file iacta
+7-file creates a file named exactly \*\'Best School\'\*$\?\*\*\*\*\*:) containing the text Best School ending by a new line.
