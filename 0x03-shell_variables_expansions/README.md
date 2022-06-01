@@ -10,3 +10,4 @@
  create mode 100755 0x03-shell_variables_expansions/6-create_local_variable
  create mode 100644 0x03-shell_variables_expansions/6-create_local_variable~
 7-create_global_variable creates a new global variable Name: BEST Value: School
+8-true_knowledge prints the result of the addition of 128 with the value stored in the environment variable TRUEKNOWLEDGE, followed by a new line
