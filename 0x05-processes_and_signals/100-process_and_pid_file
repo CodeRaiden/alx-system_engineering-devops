@@ -1,11 +1,30 @@
 #!/usr/bin/env bash
-# script to display "To infinity and beyond" infinitely with sleep 2. Print "I am invincible!!!" when recieved SIGTERM signal
+#
+# To infinity and beyond...
+# Write PID to pidfile (default '/var/run/holbertonscript.pid')
+# Remove pidfile and exit upon receiving SIGTERM or SIGQUIT
 
-echo "$$" > /var/run/holbertonscript.pid
-trap "echo 'I hate the kill command'; rm /var/run/myscript.pid; exit" SIGTERM
-trap "rm /var/run/myscript.pid; exit" SIGQUIT
-trap "echo 'Y U no love me?!'" SIGINT
-while true; do
-      echo "To infinity and beyond"
-      sleep 2
+sleep() {
+  ! read -rt "$1"
+} <> <(:)
+
+echo "$$" >| "${pidfile:=/var/run/myscript.pid}"
+
+trap '
+  echo "Y U no love me?!"
+' INT
+trap '
+  rm -f "${pidfile}" 2>/dev/null
+  exit 131
+' QUIT
+trap '
+  echo "I hate the kill command"
+  rm -f "${pidfile}" 2>/dev/null
+  exit 143
+' TERM
+
+while true
+do
+  echo 'To infinity and beyond'
+  sleep 2
 done
