@@ -1,12 +1,7 @@
 #!/usr/bin/env bash
 # script to write indefinitely "I am alive!" to file /tmp/my_process with pause of 2 seconds
 
-sleep() {
-  ! read -rt "$1"
-} <> <(:)
-
-while true
-do
-  echo 'I am alive!'
-  sleep 2
-done > "${TMPDIR:-/tmp}/my_process"
+while true; do
+    echo "I am alive!" >> /tmp/my_process
+    sleep 2
+done
