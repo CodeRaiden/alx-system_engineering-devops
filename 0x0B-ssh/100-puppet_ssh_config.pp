@@ -14,3 +14,4 @@ file_line { 'GSSAPIAuthentication':
   path => '/etc/ssh/ssh_config',
   line => 'GSSAPIAuthentication yes'
 }
+
