@@ -7,7 +7,7 @@ file_line { 'PasswordAuthentication':
 
 file_line { 'IdentityFile':
   path => '/etc/ssh/ssh_config',
-  line => 'IdentityFile ~/.ssh/holberton'
+  line => 'IdentityFile ~/.ssh/school'
 }
 
 file_line { 'GSSAPIAuthentication':
