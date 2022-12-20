@@ -1,13 +1,37 @@
 #!/usr/bin/env bash
-# script to set HTTP response for two servers
+#
+# Install and configure NGINX on a fresh Ubuntu server
+
+sudo apt-get -y update
 sudo apt-get -y install nginx
-echo "Hello World!" | sudo tee /usr/share/nginx/html/index.html
-new_string="location /redirect_me {\nrewrite ^/(.*)$ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;\n}\n"
-sed -i "/# Only/ i $new_string" /etc/nginx/sites-available/default
-echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/404.html
-replace="#error_page"
-new_string="error_page"
-sed -i "s/$replace/$new_string/" /etc/nginx/sites-available/default
-served_by="add_header X-Served-By $(cat /etc/hostname);"
-sudo sed -i "/index.htm;/ a $served_by" /etc/nginx/sites-enabled/default
-sudo service nginx restart
+
+# shellcheck disable=SC2154
+sudo sed -i "/^http {$/a add_header X-Served-By ${HOSTNAME:-$(hostname)};" /etc/nginx/nginx.conf
+
+sudo sed -i '/^\troot \/var\/www\/html;$/a rewrite ^/redirect_me https://www.google.com permanent; error_page 404 /custom_404.html; location = /custom_404.html { root /usr/share/nginx/html; internal; }' /etc/nginx/sites-available/default
+
+cat > /var/www/html/index.html << 'EOF' 
+<html>
+  <head>
+    <title>Hello World!</title>
+  </head>
+  <body>
+    <p>Hello World!</p>
+  </body>
+</html>
+EOF
+
+cat > /usr/share/nginx/html/custom_404.html << 'EOF' 
+<html>
+  <head>
+    <title>Page Not Found</title>
+  </head>
+  <body>
+    <p>Ceci n'est pas une page</p>
+  </body>
+</html>
+EOF
+
+sudo ervice nginx restart
+
+sudo ufw allow 'Nginx HTTP'
