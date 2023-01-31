@@ -1,4 +1,4 @@
-#!/user/bin/python3
+#!/usr/bin/python3
 """Script returns the number of subscribers"""
 import requests
 
