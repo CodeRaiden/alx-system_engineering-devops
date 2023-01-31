@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Script queries the Reddit API and prints the titles of the first 10 hot posts listed for a given subreddit"""
+"""Script prints the first 10 hot posts listed for a given subreddit"""
 import requests
 
 URL = 'https//www.reddit.com/r/{}/hot.json'
