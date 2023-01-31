@@ -4,6 +4,8 @@ import requests
 
 URL = 'https://www.reddit.com/r/{}/about.json'
 USER_AGENT = 'Safari 12.1'
+
+
 def number_of_subscribers(subreddit):
     """Get number of subreddit subscribers"""
     resp = requests.get(
