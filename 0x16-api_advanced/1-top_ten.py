@@ -2,7 +2,7 @@
 """Script prints the first 10 hot posts listed for a given subreddit"""
 import requests
 
-URL = 'https//www.reddit.com/r/{}/hot.json'
+URL = 'https://www.reddit.com/r/{}/hot.json'
 USER_AGENT = 'Safari 12.1'
 
 
