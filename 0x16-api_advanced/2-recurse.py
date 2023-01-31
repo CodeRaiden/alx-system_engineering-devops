@@ -17,11 +17,11 @@ def recurse(subreddit, titles=[], **kwargs):
             URL.format(subreddit),
             headers={'User-Agent': USER_AGENT},
             params=params,
-            allowed_redirects=False,
+            allow_redirects=False,
             timeout=30,
             )
     if resp.status_code == 200:
-        results = r.json()['data']
+        results = resp.json()['data']
         titles.extend(post['data']['title'] for post in results['children'])
         if results['after'] is not None:
             kwargs['after'] = results['after']
