@@ -25,7 +25,7 @@ def count_words(subreddit, wordlist, nums=None, after=None):
                 if key.casefold() == word.casefold():
                     nums[key] += 1
         if data['after'] is None:
-            keys = sorted(filter(nums.get, nums), ke=lambda k: (-nums[k], k))
+            keys = sorted(filter(nums.get, nums), key=lambda k: (-nums[k], k))
             for key in keys:
                 print('{}: {}'.format(key, nums[key]))
         else:
