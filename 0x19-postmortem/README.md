@@ -1,7 +1,7 @@
 # 0x19 Postmortem - WordPress Failure (incident #47)
 
 :fire::fire::fire::fire::fire::fire::fire::fire::fire::fire::fire::fire:
-![My first postmortem](https://www.google.com/url?sa=i&url=https%3A%2F%2Fpandorafms.com%2Fblog%2Fpost-mortem-incident%2F&psig=AOvVaw21t8OefJXvjOSHZEbaGONM&ust=1675637343336000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCODP7tf5_PwCFQAAAAAdAAAAABAJ) 
+![My first postmortem](https://pandorafms.com/blog/wp-content/uploads/2019/10/incidente-post-mortem-1.jpg) 
 :fire::fire::fire::fire::fire::fire::fire::fire::fire::fire::fire:
 
 ## Date and Duration of Outage
@@ -10,7 +10,7 @@
 
 ## Authors
 
-* samie
+* Kenneth Igbo
 
 ## Status
 
